@@ -1,0 +1,43 @@
+/* Apply Flexbox to body */
+body {
+    display: flex; 
+    flex-direction: column; /* Stack header, main, and footer vertically */
+    min-height: 100vh; /* Ensure it takes up the full viewport */
+}
+
+/* Apply Flexbox to main */
+main {
+    display: flex; 
+    flex-direction: row; /* Arrange article and aside side by side */
+    flex: auto; /* Allow it to take up available space */
+}
+
+/* Article takes 2/3 of the space */
+article {
+    flex: 2;
+    overflow-y: auto; /* Enable scrolling inside article */
+    padding: 20px;
+}
+
+/* Aside takes 1/3 of the space */
+aside {
+    flex: 1;
+    overflow-y: auto; /* Enable scrolling inside aside */
+    padding: 20px;
+    background-color: #f4f4f4; /* Light gray background for distinction */
+}
+
+/* Ensure header and footer remain visible */
+header, footer {
+    padding: 15px;
+    background-color: #979797;
+    color: white;
+    text-align: center;
+}
+
+/* Remove default margin for the whole page */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
