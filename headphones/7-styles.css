@@ -1,0 +1,16 @@
+/* Animations for "What We Do" */
+.service {
+    transition: transform 0.3s ease-in-out;
+}
+.service:hover {
+    transform: scale(1.1);
+}
+
+/* Animations for "Our Results" */
+.pentagon {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.pentagon:hover {
+    transform: rotate(15deg);
+    opacity: 0.8;
+}

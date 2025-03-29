@@ -9,13 +9,14 @@
 :root {
     --primary-color: #FF6565;
     --text-color: #fff;
+    --hover-color: #e74c3c;
     --bg-gradient: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.5));
 }
 
 /* General Styling */
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    background: var(--bg-gradient), url('/headphones/images/headphones_hero_1.jpg') no-repeat center center/cover;
+    background: var(--bg-gradient), url('images/hero-bg.jpg') no-repeat center center/cover;
     color: var(--text-color);
 }
 
@@ -27,22 +28,51 @@ body {
     padding: 20px;
 }
 
+/* Logo (aligned left on large screens, centered on small screens) */
 .logo {
     height: 50px;
 }
 
-.nav ul {
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
     display: flex;
     list-style: none;
 }
 
-.nav ul li {
+.nav-links li {
     margin-left: 20px;
 }
 
-.nav ul li a {
+.nav-links li a {
     text-decoration: none;
     color: var(--text-color);
+    font-size: 1rem;
+}
+
+.nav-links li a:hover {
+    color: var(--hover-color);
+}
+
+/* Hamburger Menu - Hidden by Default */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    cursor: pointer;
 }
 
 /* Hero Section */
@@ -64,13 +94,17 @@ body {
     margin: 10px 0;
 }
 
+/* CTA Button */
 .cta-button {
     background-color: var(--primary-color);
-    padding: 10px 20px;
+    padding: 15px 30px;
     text-decoration: none;
     color: white;
+    font-size: 1rem;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
     transition: opacity 0.3s ease;
 }
 
@@ -79,21 +113,37 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 480px) {
-    .header {
+@media (max-width: 768px) {
+    .container {
         flex-direction: column;
         text-align: center;
     }
 
-    .nav ul {
+    /* Logo centered */
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    /* Hide nav links by default */
+    .nav-links {
+        display: none;
         flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        transition: 0.3s ease;
     }
 
-    .hero h1 {
-        font-size: 1.8rem;
+    .nav-links.show {
+        display: flex;
     }
 
-    .cta-button {
-        padding: 12px 24px;
+    /* Hamburger menu appears */
+    .hamburger {
+        display: block;
     }
 }
